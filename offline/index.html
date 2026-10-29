@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b91e5" />
+    <meta
+      name="description"
+      content="善证 TrustAid 最终提交版——可真实提取视频指纹、持久化数据并完成人工审核闭环的本地系统"
+    />
+    <title>善证 TrustAid｜最终提交版</title>
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <section id="launch-help" hidden>
+      <img src="./trustaid-logo.jpg" alt="TrustAid 善证" />
+      <h1>请从启动文件进入善证</h1>
+      <p>当前打开的是网页文件，数据库和视频核验服务尚未启动。</p>
+      <strong>返回此文件夹，双击“打开善证.bat”</strong>
+      <small>启动后浏览器地址应为 http://127.0.0.1:4178</small>
+    </section>
+    <div id="root"></div>
+    <noscript>此演示需要浏览器启用 JavaScript。</noscript>
+    <script>
+      if (window.location.protocol === "file:") {
+        const help = document.getElementById("launch-help");
+        help.hidden = false;
+        help.style.cssText = "min-height:100vh;display:grid;place-items:center;align-content:center;gap:12px;padding:32px;text-align:center;background:#f5faff;color:#17354f;font-family:'Microsoft YaHei',sans-serif";
+        help.querySelector("img").style.cssText = "width:88px;height:88px;object-fit:cover;transform:scale(1);border-radius:18px;box-shadow:0 12px 32px rgba(11,145,229,.2)";
+        help.querySelector("h1").style.cssText = "margin:8px 0 0;font-size:28px;color:#075f9f";
+        help.querySelector("p").style.cssText = "margin:0;color:#667f94";
+        help.querySelector("strong").style.cssText = "margin-top:8px;padding:13px 18px;border-radius:10px;background:#0b91e5;color:white";
+        help.querySelector("small").style.cssText = "color:#667f94";
+      } else {
+        const script = document.createElement("script");
+        script.src = "./app.js";
+        document.body.appendChild(script);
+      }
+    </script>
+  </body>
+</html>
